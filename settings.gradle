@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':rtmp', ':encoder', ':rtsp', ':rtplibrary'
 rootProject.name='FacilitySupervision'
