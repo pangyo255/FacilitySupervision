@@ -1,16 +1,45 @@
 package com.sptek.facilitysupervision;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
+
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
-import android.widget.Toast;
-
 public class MainActivity extends AppCompatActivity {
+
+    private static boolean mFirstRun = true;
+    private ProgressBar mActionBarProgress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toast.makeText(this, "테스트야 commit테스트", Toast.LENGTH_SHORT).show();
+        mActionBarProgress = findViewById(R.id.actionbar_progress);
+        mActionBarProgress.setVisibility(ProgressBar.VISIBLE);
+
+        // Starts fade in animation
+        ImageView myImageView = findViewById(R.id.loadingImage);
+        Animation myFadeInAnimation = AnimationUtils.loadAnimation(this, R.anim.fade_in);
+        myImageView.startAnimation(myFadeInAnimation);
+        mFirstRun = false;
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(MainActivity.this, PermissionActivity.class));
+            }
+        }, 800);
+    }
+
+
+
+    public static boolean isFirstRun()
+    {
+        return mFirstRun;
     }
 }
