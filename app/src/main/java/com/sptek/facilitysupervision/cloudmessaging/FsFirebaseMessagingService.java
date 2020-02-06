@@ -59,7 +59,7 @@ public class FsFirebaseMessagingService extends FirebaseMessagingService {
     private void handleNow(RemoteMessage remoteMessage)
     {
         Log.d("namjinha", "handleNow in");
-        sendNotification(remoteMessage.getData().get("message"));
+        sendNotification(remoteMessage.getData().get("title"), remoteMessage.getData().get("message"));
     }
 
     private void sendRegistrationToServer(String token)
@@ -67,7 +67,7 @@ public class FsFirebaseMessagingService extends FirebaseMessagingService {
         Log.d("namjinha", "onNewToken token = " + token);
     }
 
-    private void sendNotification(String messageBody)
+    private void sendNotification(String messageBodyTitle, String messageBodyMessage)
     {
         Intent intent = new Intent(this, MainActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -79,8 +79,8 @@ public class FsFirebaseMessagingService extends FirebaseMessagingService {
         NotificationCompat.Builder notificationBuilder =
                 new NotificationCompat.Builder(this, channelId)
                         .setSmallIcon(R.mipmap.ic_launcher)
-                        .setContentTitle(getString(R.string.app_name))
-                        .setContentText(messageBody)
+                        .setContentTitle(messageBodyTitle)
+                        .setContentText(messageBodyMessage)
                         .setAutoCancel(true)
                         .setSound(defaultSoundUri)
                         .setContentIntent(pendingIntent);
