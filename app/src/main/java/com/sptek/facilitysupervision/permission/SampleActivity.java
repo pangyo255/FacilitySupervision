@@ -1,9 +1,5 @@
 package com.sptek.facilitysupervision.permission;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.DialogInterface;
@@ -25,10 +21,10 @@ import com.karumi.dexter.listener.single.DialogOnDeniedPermissionListener;
 import com.karumi.dexter.listener.single.PermissionListener;
 import com.karumi.dexter.listener.single.SnackbarOnDeniedPermissionListener;
 import com.sptek.facilitysupervision.R;
-import com.sptek.facilitysupervision.permission.SampleBackgroundThreadPermissionListener;
-import com.sptek.facilitysupervision.permission.SampleErrorListener;
-import com.sptek.facilitysupervision.permission.SampleMultiplePermissionListener;
-import com.sptek.facilitysupervision.permission.SamplePermissionListener;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 public class SampleActivity extends AppCompatActivity implements View.OnClickListener {
     Button btnAllPermission;
