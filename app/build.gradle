@@ -35,6 +35,20 @@ dependencies {
 // Firebase Analytics
     implementation 'com.google.firebase:firebase-core:16.0.1'
     implementation 'com.google.firebase:firebase-messaging:17.3.4'      // fcm 추가
+
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'              // retrofit lib 추가
+//*// OkHttp는 이미 Retrofit2 모듈의 종속성에 포함되어 있어, 별도의 OkHttp 설정이 필요하다면 다음과 같이 Retrofit2에서 OkHttp 종속성을 제외해야 합니다.
+    implementation('com.squareup.retrofit2:retrofit:2.3.0') {
+        exclude module: 'okhttp'
+    }
+//*/
+
+    implementation 'com.google.code.gson:gson:2.8.5'                    // gson 관련
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'        // gson 관련
+
+    implementation 'com.squareup.okhttp3:okhttp:3.12.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.9.1'
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
