@@ -16,18 +16,31 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.sptek.facilitysupervision.cloudmessaging.CloudMessagingActivity;
 import com.sptek.facilitysupervision.permission.SampleActivity;
+import com.sptek.facilitysupervision.restapi.RestApiTestActivity;
+import com.sptek.facilitysupervision.temp.listview.MultipleListViewActivity;
 
 public class FuncActivity extends AppCompatActivity implements View.OnClickListener {
+
+    private Button btnPermission;
+    private Button btnFcm;
+    private Button btnRestApi;
+    private Button btnMultipleListview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_func);
 
-        Button btnPermission = findViewById(R.id.btn_permission);
-        Button btnFcm = findViewById(R.id.btn_fcm);
+        btnPermission = findViewById(R.id.btn_permission);
+        btnFcm = findViewById(R.id.btn_fcm);
+        btnRestApi = findViewById(R.id.btn_restapi);
+        btnMultipleListview = findViewById(R.id.btn_multiple_listview);
+
         btnPermission.setOnClickListener(this);
         btnFcm.setOnClickListener(this);
+        btnRestApi.setOnClickListener(this);
+        btnMultipleListview.setOnClickListener(this);
+
     }
 
     @Override
@@ -39,6 +52,12 @@ public class FuncActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_fcm:
                 startActivity(new Intent(this, CloudMessagingActivity.class));
+                break;
+            case R.id.btn_restapi:
+                startActivity(new Intent(this, RestApiTestActivity.class));
+                break;
+            case R.id.btn_multiple_listview:
+                startActivity(new Intent(this, MultipleListViewActivity.class));
                 break;
             default:
                 break;
